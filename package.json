@@ -6,11 +6,14 @@
   "license": "MIT",
   "scripts": {
     "setup": "cd server && yarn install && npx prisma generate && npx prisma migrate deploy && cd ../frontend && yarn install && cd ../collector && yarn install",
+    "setup:npm": "cd server && npm install && npx prisma generate && npx prisma migrate deploy && cd ../frontend && npm install && cd ../collector && npm install",
     "dev": "node scripts/dev.js",
     "dev:server": "cd server && node index.js",
     "dev:frontend": "cd frontend && npx vite --host",
     "dev:collector": "cd collector && node index.js",
     "docker:dev": "cd docker && docker compose up -d",
+    "docker:build": "cd docker && docker compose build",
+    "lint": "cd frontend && yarn lint:check || true; cd ../server && yarn lint:check || true",
     "format": "npx prettier --write .",
     "format:check": "npx prettier --check ."
   },
