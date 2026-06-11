@@ -13,7 +13,6 @@ import {
   Plugs,
 } from "@phosphor-icons/react";
 import AgentIcon from "@/media/animations/agent-static.png";
-import CommunityHubIcon from "@/media/illustrations/community-hub.png";
 import useUser from "@/hooks/useUser";
 import { isMobile } from "react-device-detect";
 import Footer from "../Footer";
@@ -314,37 +313,8 @@ const SidebarOptions = ({ user = null, t }) => (
           flex={true}
           roles={["admin"]}
         />
-        <Option
-          btnText={t("settings.community-hub.title")}
-          icon={
-            <img
-              src={CommunityHubIcon}
-              alt="Community Hub"
-              className="h-5 w-5 flex-shrink-0 light:invert"
-            />
-          }
-          user={user}
-          childOptions={[
-            {
-              btnText: t("settings.community-hub.trending"),
-              href: paths.communityHub.trending(),
-              flex: true,
-              roles: ["admin"],
-            },
-            {
-              btnText: t("settings.community-hub.your-account"),
-              href: paths.communityHub.authentication(),
-              flex: true,
-              roles: ["admin"],
-            },
-            {
-              btnText: t("settings.community-hub.import-item"),
-              href: paths.communityHub.importItem(),
-              flex: true,
-              roles: ["admin"],
-            },
-          ]}
-        />
+{/* Community Hub — disabled (requires Mintplex backend) */}
+        {/* <Option ... /> */}
         <Option
           btnText={t("settings.customization")}
           icon={<PencilSimpleLine className="h-5 w-5 flex-shrink-0" />}
@@ -389,7 +359,7 @@ const SidebarOptions = ({ user = null, t }) => (
           user={user}
           childOptions={[
             {
-              hidden: !canViewChatHistory,
+              hidden: true,
               btnText: t("settings.embeds"),
               href: paths.settings.embedChatWidgets(),
               flex: true,
@@ -420,12 +390,14 @@ const SidebarOptions = ({ user = null, t }) => (
               roles: ["admin"],
             },
             {
+              hidden: true,
               btnText: t("settings.browser-extension"),
               href: paths.settings.browserExtension(),
               flex: true,
               roles: ["admin", "manager"],
             },
             {
+              hidden: true,
               btnText: t("settings.mobile-app"),
               href: paths.settings.mobile(),
               flex: true,
@@ -511,7 +483,7 @@ function AppVersion() {
   if (isLoading) return null;
   return (
     <Link
-      to={`https://github.com/Mintplex-Labs/anything-llm/releases/tag/v${version}`}
+      to={`https://github.com/Awkwindccy/omniagent/releases/tag/v${version}`}
       target="_blank"
       rel="noreferrer"
       className="text-theme-text-secondary light:opacity-80 opacity-50 text-xs mx-3"

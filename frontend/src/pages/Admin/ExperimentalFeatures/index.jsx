@@ -264,14 +264,14 @@ function FeatureVerification({ children }) {
                       href="https://github.com/Awkwindccy/omniagent/blob/master/README.md"
                       className="underline text-blue-500"
                     >
-                      docs.anythingllm.com
+                      github.com/Awkwindccy/omniagent/blob/master/README.md
                     </a>{" "}
                     or email{" "}
                     <a
-                      href="mailto:team@mintplexlabs.com"
+                      href="mailto:support@omniagent.local"
                       className="underline text-blue-500"
                     >
-                      team@mintplexlabs.com
+                      support@omniagent.local
                     </a>
                   </p>
                 </div>

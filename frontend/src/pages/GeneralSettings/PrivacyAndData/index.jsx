@@ -98,7 +98,7 @@ function TelemetryLogs({ settings }) {
             based information. To see the list of event tags collected you can
             look on{" "}
             <a
-              href="https://github.com/search?q=repo%3AMintplex-Labs%2Fanything-llm%20.sendTelemetry(&type=code"
+              href="#(&type=code"
               className="underline text-blue-400"
               target="_blank"
               rel="noreferrer"
@@ -114,12 +114,12 @@ function TelemetryLogs({ settings }) {
             telemetry all we ask is to consider sending us feedback and thoughts
             so that we can continue to improve OmniAgent for you.{" "}
             <a
-              href="mailto:team@mintplexlabs.com"
+              href="mailto:support@omniagent.local"
               className="underline text-blue-400"
               target="_blank"
               rel="noreferrer"
             >
-              team@mintplexlabs.com
+              support@omniagent.local
             </a>
             .
           </p>

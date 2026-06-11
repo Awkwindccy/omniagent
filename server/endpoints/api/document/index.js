@@ -367,7 +367,7 @@ function apiDocumentEndpoints(app) {
             schema: {
               type: 'object',
               example: {
-                "link": "https://anythingllm.com",
+                "link": "https://github.com/Awkwindccy/omniagent",
                 "addToWorkspaces": "workspace1,workspace2",
                 "scraperHeaders": {
                   "Authorization": "Bearer token123",

@@ -67,7 +67,7 @@ export default {
     return "https://github.com/Awkwindccy/omniagent/blob/master/README.md";
   },
   mailToMintplex: () => {
-    return "mailto:team@mintplexlabs.com";
+    return "mailto:support@omniagent.local";
   },
   hosting: () => {
     return "#";
