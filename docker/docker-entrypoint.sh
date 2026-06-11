@@ -3,11 +3,12 @@ set -e
 
 echo "🚀 OmniAgent starting..."
 
-# Generate Prisma client and run migrations
+# Setup database
 echo "📦 Setting up database..."
+cd /app/server
 npx prisma generate
 npx prisma migrate deploy
 
-# Start the server
-echo "✅ Starting OmniAgent on port 3001..."
-exec node index.js
+# Start both server and collector via supervisord
+echo "✅ Starting OmniAgent services..."
+exec supervisord -c /etc/supervisor/conf.d/supervisord.conf
