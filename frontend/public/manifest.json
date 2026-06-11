@@ -1,0 +1,13 @@
+{
+  "name": "OmniAgent",
+  "short_name": "OmniAgent",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any"
+    }
+  ]
+}
