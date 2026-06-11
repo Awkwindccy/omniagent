@@ -9,25 +9,52 @@
 
 An AI agent platform with RAG, multi-model support, and autonomous tool execution. Built on top of [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm).
 
-## Quick Start (30 seconds)
+## Quick Start
+
+### Prerequisites
+
+- **Node.js** >= 18.12.1 (`node --version`)
+- **Yarn** (`npm install -g yarn`)
+- **Git**
+
+### 1. Clone & Configure
 
 ```bash
-# 1. Clone
 git clone https://github.com/Awkwindccy/omniagent.git
 cd omniagent
-
-# 2. Configure
 cp .env.example server/.env
-# Edit server/.env → add your DeepSeek API key
-
-# 3. Install & Run
-npm run setup     # Install all dependencies
-npm run dev       # Start server + collector + frontend
 ```
 
-Open http://localhost:3000 — that's it.
+### 2. Get an API Key (pick one)
 
-> 💡 Need an API key? [DeepSeek](https://platform.deepseek.com) offers cheap API access. Or use [Ollama](https://ollama.com) for free local models.
+| Provider | Cost | Signup |
+|----------|------|--------|
+| **DeepSeek** (recommended) | ~$0.14/1M tokens | [platform.deepseek.com](https://platform.deepseek.com) |
+| **Ollama** | Free (local) | [ollama.com](https://ollama.com) |
+
+Edit `server/.env` and fill in your API key:
+```bash
+DEEPSEEK_API_KEY=sk-your-key-here
+```
+
+> Or for Ollama: change `LLM_PROVIDER=ollama` and set `OLLAMA_BASE_PATH`.
+
+### 3. Install & Run
+
+```bash
+npm run setup     # Install dependencies (~5 min first time)
+npm run dev       # Start all services
+```
+
+Open **http://localhost:3000** and start chatting!
+
+### Troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| Port 3000 already in use | Change Vite port: `cd frontend && npx vite --port 3002` |
+| Collector not starting | It's optional — chat still works without it |
+| `yarn: command not found` | `npm install -g yarn` |
 
 ## Features
 
