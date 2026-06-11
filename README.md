@@ -1,6 +1,33 @@
 # OmniAgent
 
+<p align="center">
+  <img src="https://img.shields.io/badge/license-MIT-blue" alt="License">
+  <img src="https://img.shields.io/badge/node-%3E%3D18.12.1-green" alt="Node">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs">
+  <img src="https://img.shields.io/badge/status-active-success" alt="Status">
+</p>
+
 An AI agent platform with RAG, multi-model support, and autonomous tool execution. Built on top of [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm).
+
+## Quick Start (30 seconds)
+
+```bash
+# 1. Clone
+git clone https://github.com/Awkwindccy/omniagent.git
+cd omniagent
+
+# 2. Configure
+cp .env.example server/.env
+# Edit server/.env → add your DeepSeek API key
+
+# 3. Install & Run
+npm run setup     # Install all dependencies
+npm run dev       # Start server + collector + frontend
+```
+
+Open http://localhost:3000 — that's it.
+
+> 💡 Need an API key? [DeepSeek](https://platform.deepseek.com) offers cheap API access. Or use [Ollama](https://ollama.com) for free local models.
 
 ## Features
 
@@ -77,26 +104,15 @@ Open http://localhost:3000 in your browser.
 ```
 omniagent/
 ├── frontend/          # React + Vite frontend
-│   ├── src/
-│   │   ├── components/   # UI components
-│   │   ├── pages/        # Page components
-│   │   ├── hooks/        # Custom React hooks
-│   │   ├── models/       # API interaction layer
-│   │   ├── locales/      # 25+ language translations
-│   │   └── media/        # Images, icons, animations
-│   └── public/           # Static assets
-├── server/            # Express backend
-│   ├── endpoints/        # API route handlers
-│   ├── models/           # Database models
-│   ├── utils/
-│   │   ├── AiProviders/      # 30+ LLM integrations
-│   │   ├── vectorDbProviders/# 10+ vector DB integrations
-│   │   ├── EmbeddingEngines/ # 15+ embedding providers
-│   │   ├── agents/           # Agent framework (AIbitat)
-│   │   ├── chats/            # Chat/streaming logic
-│   │   └── DocumentManager/  # Document processing
-│   └── prisma/           # Database schema & migrations
-└── LICENSE
+├── server/            # Express backend API
+├── collector/         # Document processing service
+├── docker/            # Docker deployment config
+├── .github/workflows/ # CI/CD pipeline
+├── scripts/           # Dev utilities
+├── package.json       # Root orchestration (npm run dev)
+├── .env.example       # Environment template
+├── .editorconfig      # Code style
+└── .prettierrc        # Code formatting
 ```
 
 ## Environment Variables
