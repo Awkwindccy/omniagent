@@ -261,7 +261,7 @@ function FeatureVerification({ children }) {
                     Access to any features requires approval of this modal. If
                     you would like to read more you can refer to{" "}
                     <a
-                      href="https://docs.anythingllm.com/beta-preview/overview"
+                      href="https://github.com/Awkwindccy/omniagent/blob/master/README.md"
                       className="underline text-blue-500"
                     >
                       docs.anythingllm.com

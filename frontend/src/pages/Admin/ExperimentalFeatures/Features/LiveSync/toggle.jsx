@@ -59,7 +59,7 @@ export default function LiveSyncToggle({ enabled = false, onToggle }) {
         <ul className="space-y-2">
           <li>
             <a
-              href="https://docs.anythingllm.com/beta-preview/active-features/live-document-sync"
+              href="https://github.com/Awkwindccy/omniagent/blob/master/README.md"
               target="_blank"
               className="text-sm text-blue-400 light:text-blue-500 hover:underline flex items-center gap-x-1"
               rel="noreferrer"

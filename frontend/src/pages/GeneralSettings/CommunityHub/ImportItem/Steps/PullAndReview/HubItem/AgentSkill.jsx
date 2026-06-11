@@ -81,7 +81,7 @@ export default function AgentSkill({ item, settings, setStep }) {
             </p>
           )}
           <a
-            href="https://docs.anythingllm.com/community-hub/faq#verification"
+            href="https://github.com/Awkwindccy/omniagent/blob/master/README.md"
             target="_blank"
             className="text-xs font-mono text-blue-500 hover:underline"
             rel="noreferrer"
