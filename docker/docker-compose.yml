@@ -1,0 +1,25 @@
+version: "3.8"
+
+name: omniagent
+
+services:
+  omniagent:
+    container_name: omniagent
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - omniagent-storage:/app/server/storage
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/api/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  omniagent-storage:
