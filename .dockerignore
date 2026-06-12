@@ -7,3 +7,4 @@ storage/
 **/node_modules
 frontend/node_modules
 server/node_modules
+collector/node_modules
