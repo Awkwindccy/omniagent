@@ -1303,8 +1303,7 @@ const TRANSLATIONS = {
     },
     branding: {
       title: "Marka & Beyaz Etiketleme",
-      description:
-        "OmniAgent örneğinizi özel markalamayla beyaz etiketleyin.",
+      description: "OmniAgent örneğinizi özel markalamayla beyaz etiketleyin.",
     },
     chat: {
       title: "Sohbet",

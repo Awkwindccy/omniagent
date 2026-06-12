@@ -213,8 +213,8 @@ function FeatureVerification({ children }) {
               <div className="py-7 px-9 space-y-4 flex-col">
                 <div className="w-full text-white text-md flex flex-col gap-y-4">
                   <p>
-                    Experimental features of OmniAgent are features that we
-                    are piloting and are <b>opt-in</b>. We proactively will
+                    Experimental features of OmniAgent are features that we are
+                    piloting and are <b>opt-in</b>. We proactively will
                     condition or warn you on any potential concerns should any
                     exist prior to approval of any feature.
                   </p>

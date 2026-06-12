@@ -313,7 +313,7 @@ const SidebarOptions = ({ user = null, t }) => (
           flex={true}
           roles={["admin"]}
         />
-{/* Community Hub — disabled (requires Mintplex backend) */}
+        {/* Community Hub — disabled (requires Mintplex backend) */}
         {/* <Option ... /> */}
         <Option
           btnText={t("settings.customization")}

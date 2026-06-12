@@ -821,8 +821,7 @@ const TRANSLATIONS = {
     },
     branding: {
       title: "Marca y marca blanca",
-      description:
-        "Personaliza tu instancia de OmniAgent con tu propia marca.",
+      description: "Personaliza tu instancia de OmniAgent con tu propia marca.",
     },
     chat: {
       title: "Chat",
