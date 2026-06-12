@@ -142,16 +142,16 @@ export default function CommunityHubAuthentication() {
                   </h1>
                 </div>
                 <p className="text-sm text-theme-text-secondary">
-                  Connecting your OmniAgent Community Hub account allows you
-                  to pull in your <b>private</b> items from the OmniAgent
-                  Community Hub as well as upload your own items to the
-                  OmniAgent Community Hub.
+                  Connecting your OmniAgent Community Hub account allows you to
+                  pull in your <b>private</b> items from the OmniAgent Community
+                  Hub as well as upload your own items to the OmniAgent
+                  Community Hub.
                   <br />
                   <br />
                   <i>
                     You do not need to connect your OmniAgent Community Hub
-                    account to pull in public items from the OmniAgent
-                    Community Hub.
+                    account to pull in public items from the OmniAgent Community
+                    Hub.
                   </i>
                 </p>
               </div>

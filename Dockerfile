@@ -10,36 +10,25 @@ RUN yarn build
 FROM node:18-slim
 WORKDIR /app/server
 
-# System deps for sharp + puppeteer
+# System deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl python3 make g++ chromium ca-certificates \
-    fonts-liberation libasound2 libatk-bridge2.0-0 libcups2 libdrm2 \
-    libgbm1 libnss3 libxcomposite1 libxdamage1 libxrandr2 xdg-utils \
-    libvips-dev && \
+    curl && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
-
-# Server deps
+# Install server deps
 COPY server/package.json server/yarn.lock ./
 RUN yarn install --network-timeout 100000 && yarn cache clean
 
-# Collector deps
-COPY collector/package.json collector/yarn.lock ../collector/
-RUN cd ../collector && yarn install --network-timeout 100000 && yarn cache clean
-
-# Copy all source
+# Copy source
 COPY server/ ./
-COPY collector/ ../collector/
 
-# Frontend static files
+# Copy built frontend
 COPY --from=frontend-build /app/frontend/dist ./public
 
-# Prisma client
+# Generate Prisma client
 RUN npx prisma generate
 
-# Startup script
+# Startup
 COPY docker/start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
 
