@@ -13,40 +13,53 @@ An AI agent platform with RAG, multi-model support, and autonomous tool executio
 
 ### Prerequisites
 
-- **Node.js** >= 18.12.1 (`node --version`)
-- **Yarn** (`npm install -g yarn`)
+- **Node.js** >= 18.12.1
+- **Yarn**: `npm install -g yarn`
 - **Git**
 
-### 1. Clone & Configure
+### 3 步启动
 
 ```bash
+# 1. 克隆项目
 git clone https://github.com/Awkwindccy/omniagent.git
 cd omniagent
-cp .env.example server/.env
+
+# 2. 安装依赖 + 初始化数据库
+npm run setup
+
+# 3. 启动
+npm run dev
 ```
 
-### 2. Get an API Key (pick one)
+打开 **http://localhost:3000** → 按网页引导选择模型、填入 API Key → 开始聊天。
+
+> 💡 **API Key 可以在网页上配**，不用手动编辑 `.env`。如果你更习惯配置文件的，在 `server/.env` 里填你的 Key 也可以。
+
+### 推荐 LLM
 
 | Provider | Cost | Signup |
 |----------|------|--------|
-| **DeepSeek** (recommended) | ~$0.14/1M tokens | [platform.deepseek.com](https://platform.deepseek.com) |
+| **DeepSeek** | ~$0.14/1M tokens | [platform.deepseek.com](https://platform.deepseek.com) |
 | **Ollama** | Free (local) | [ollama.com](https://ollama.com) |
 
-Edit `server/.env` and fill in your API key:
-```bash
-DEEPSEEK_API_KEY=sk-your-key-here
-```
+### 文档上传（可选）
 
-> Or for Ollama: change `LLM_PROVIDER=ollama` and set `OLLAMA_BASE_PATH`.
-
-### 3. Install & Run
+文本文件上传无需额外配置。PDF/Word/图片处理需要单独启动 Collector：
 
 ```bash
-npm run setup     # Install dependencies (~5 min first time)
-npm run dev       # Start all services
+cd collector && yarn install && node index.js
 ```
 
-Open **http://localhost:3000** and start chatting!
+> Mac/Linux 开箱即用。Windows 需安装 [Visual Studio Build Tools](https://visualstudio.microsoft.com/zh-hans/downloads/)（勾选"使用 C++ 的桌面开发"）。
+
+### Troubleshooting
+
+| 问题 | 解决 |
+|------|------|
+| `yarn: command not found` | `npm install -g yarn` |
+| 端口 3000 被占用 | `cd frontend && npx vite --port 3002` |
+| 页面循环回到引导页 | 确认 `server/.env` 里有 `NODE_ENV=development` |
+| Collector 装不上 | 不影响核心聊天功能，跳过即可 |
 
 ### Troubleshooting
 
