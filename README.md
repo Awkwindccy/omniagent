@@ -52,6 +52,14 @@ cd collector && yarn install && node index.js
 
 > Mac/Linux 开箱即用。Windows 需安装 [Visual Studio Build Tools](https://visualstudio.microsoft.com/zh-hans/downloads/)（勾选"使用 C++ 的桌面开发"）。
 
+### Docker 一键启动
+
+```bash
+docker run -p 3001:3001 awkwindccy/omniagent
+```
+
+> 镜像自动构建，包含全部依赖（Chromium、sharp 等）。无需手动安装任何东西。
+
 ### Troubleshooting
 
 | 问题 | 解决 |
@@ -60,11 +68,6 @@ cd collector && yarn install && node index.js
 | 端口 3000 被占用 | `cd frontend && npx vite --port 3002` |
 | 页面循环回到引导页 | 确认 `server/.env` 里有 `NODE_ENV=development` |
 | Collector 装不上 | 不影响核心聊天功能，跳过即可 |
-
-### Troubleshooting
-
-| Issue | Fix |
-|-------|-----|
 | Port 3000 already in use | Change Vite port: `cd frontend && npx vite --port 3002` |
 | Collector not starting | It's optional — chat still works without it |
 | `yarn: command not found` | `npm install -g yarn` |
