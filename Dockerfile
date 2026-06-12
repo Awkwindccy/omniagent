@@ -14,7 +14,8 @@ WORKDIR /app/server
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl python3 make g++ chromium ca-certificates \
     fonts-liberation libasound2 libatk-bridge2.0-0 libcups2 libdrm2 \
-    libgbm1 libnss3 libxcomposite1 libxdamage1 libxrandr2 xdg-utils && \
+    libgbm1 libnss3 libxcomposite1 libxdamage1 libxrandr2 xdg-utils \
+    libvips-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
@@ -22,11 +23,11 @@ ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
 # Server deps
 COPY server/package.json server/yarn.lock ./
-RUN yarn install --production --network-timeout 100000 && yarn cache clean
+RUN yarn install --network-timeout 100000 && yarn cache clean
 
 # Collector deps
 COPY collector/package.json collector/yarn.lock ../collector/
-RUN cd ../collector && yarn install --production --network-timeout 100000 && yarn cache clean
+RUN cd ../collector && yarn install --network-timeout 100000 && yarn cache clean
 
 # Copy all source
 COPY server/ ./
