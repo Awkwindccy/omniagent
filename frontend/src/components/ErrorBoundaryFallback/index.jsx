@@ -41,10 +41,21 @@ ${details.stack}
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-theme-bg-primary text-theme-text-primary gap-4 p-4 md:p-8 w-full">
       <h1 className="text-xl md:text-2xl font-bold text-center">
-        An error occurred.
+        出了点问题
       </h1>
       <p className="text-theme-text-secondary text-center px-4">
-        {error?.message}
+        {error?.message || "应用遇到了意外错误，请尝试刷新页面。"}
+      </p>
+      <p className="text-theme-text-secondary text-center text-sm mt-2">
+        如果问题持续，请{" "}
+        <a
+          href="https://github.com/Awkwindccy/omniagent/issues"
+          className="text-blue-400 underline"
+          target="_blank"
+          rel="noreferrer"
+        >
+          提交 Issue
+        </a>
       </p>
       {import.meta.env.DEV && (
         <div className="w-full max-w-4xl">

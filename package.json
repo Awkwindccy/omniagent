@@ -13,7 +13,13 @@
     "dev:collector": "cd collector && node index.js",
     "docker:dev": "cd docker && docker compose up -d",
     "docker:build": "cd docker && docker compose build",
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop ecosystem.config.js",
+    "restart": "pm2 restart ecosystem.config.js",
+    "status": "pm2 status",
+    "logs": "pm2 logs",
     "lint": "cd frontend && yarn lint:check || true; cd ../server && yarn lint:check || true",
+    "check": "node scripts/check-env.js",
     "format": "npx prettier --write .",
     "format:check": "npx prettier --check ."
   },
