@@ -45,10 +45,29 @@ const {
   googleAgentSkillEndpoints,
 } = require("./endpoints/utils/googleAgentSkillEndpoints");
 const { memoryEndpoints } = require("./endpoints/memory");
+const helmet = require("helmet");
+const compression = require("compression");
+const rateLimit = require("express-rate-limit");
 const { httpLogger } = require("./middleware/httpLogger");
 const app = express();
 const apiRouter = express.Router();
 const FILE_LIMIT = "3GB";
+
+// ─── 生产安全中间件 ───
+if (process.env.NODE_ENV === "production") {
+  app.use(helmet()); // 安全头: CSP, X-Frame-Options, etc.
+  app.use(compression()); // Gzip 压缩响应
+}
+
+// API 限流
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1 分钟窗口
+  max: process.env.NODE_ENV === "production" ? 100 : 1000, // 生产 100/分，开发 1000/分
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "请求过于频繁，请稍后再试" },
+});
+app.use("/api", limiter);
 
 // Only log HTTP requests in development mode and if the ENABLE_HTTP_LOGGER environment variable is set to true
 if (
@@ -61,7 +80,13 @@ if (
     })
   );
 }
-app.use(cors({ origin: true }));
+app.use(
+  cors({
+    origin: process.env.NODE_ENV === "production"
+      ? process.env.CORS_ORIGIN || "http://localhost:3000"
+      : true,
+  })
+);
 app.use(bodyParser.text({ limit: FILE_LIMIT }));
 app.use(bodyParser.json({ limit: FILE_LIMIT }));
 app.use(
